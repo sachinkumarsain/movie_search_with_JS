@@ -5,26 +5,71 @@
     font-family: poppins;
 }
 
-#wapper {
-    background: #232526;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #414345, #232526);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #414345, #232526);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-}
 
 header {
-    background-color: rgb(16, 65, 133);
     color: black;
     font-size: 25px;
     padding: 20px;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+    background: #061014;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0b161b, #203A43, #03151d);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #0d1b20, #0F2027);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+.first {
+    color: red;
+}
+
+.anchors {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.anchors .hollywood,
+.anchors .bollywood {
+    text-decoration: none;
+    padding: 6px 20px;
+    color: white;
+    border-radius: 30px;
+    margin: 0px 5px;
+    box-shadow: 0 0 4px 2px #080c0e;
+    transition: all 1s ease;
+}
+
+.anchors .hollywood:hover,
+.anchors .bollywood:hover {
+    transform: scale(1.09);
+}
+
+.hollywood {
+    background-color: blue;
+}
+
+.anchors .bollywood {
+    background-color: red;
 }
 
 #search form {
+    background: #080c0e;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #080f12, #132429, #0e3445);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #18252b, #071f27, #206684);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 #search form input,
@@ -39,8 +84,16 @@ header {
 #results {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
-   
+    background: #0F2027;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
 }
 
 #results .movie {
@@ -58,7 +111,7 @@ header {
     font-size: 20px;
     text-align: center;
     transition: all 1s ease;
-    box-shadow: 0 0 7px 8px rgb(64, 64, 64);
+    box-shadow: 0 0 7px 4px #080c0e;
 
 }
 
@@ -75,4 +128,35 @@ header {
 
 #results .movie:hover {
     transform: scale(1.06);
+}
+
+@media all and (max-width:800px) {
+    header {
+        flex-direction: column;
+
+    }
+
+    form {
+        flex-direction: column;
+    }
+}
+
+@media all and (max-width:450px) {
+    header h1 {
+        font-size: 32px;
+    }
+
+    header .anchors {
+        flex-direction: column;
+    }
+
+    .anchors .hollywood,
+    .anchors .bollywood {
+        margin: 5px 0px;
+    }
+
+   #search form input,
+   #search form button{
+    font-size: 19px;
+   }
 }
