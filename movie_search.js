@@ -27,8 +27,8 @@ function showmovies(data){
    
 }
 function titleName(name){
-    if(name.length>50){
-        return name.slice(0,50)+"...."
+    if(name.length>40){
+        return name.slice(0,40)+"...."
     }
     else{
         return name
