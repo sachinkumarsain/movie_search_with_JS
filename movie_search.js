@@ -9,6 +9,7 @@ form.onsubmit=(e)=>{
 }
 
 function showmovies(data){
+  
     const result=document.querySelector("#results");
     result.innerHTML=""
     data.forEach((movie)=>{
@@ -16,11 +17,20 @@ function showmovies(data){
         movieDiv.classList.add("movie")
         const poster=document.createElement("img");
         const name=document.createElement("h3");
-        poster.src="https://image.tmdb.org/t/p/original"+movie.poster_path;
-        name.innerHTML=movie.original_title;
+        poster.src=(movie.poster_path)?"https://image.tmdb.org/t/p/original"+movie.poster_path:"no-poster-available.jpg";
+        name.innerHTML=titleName(movie.original_title);
         movieDiv.append(poster);  
         movieDiv.append(name);
         result.append(movieDiv)
 
     })
+   
+}
+function titleName(name){
+    if(name.length>50){
+        return name.slice(0,50)+"...."
+    }
+    else{
+        return name
+    }
 }
