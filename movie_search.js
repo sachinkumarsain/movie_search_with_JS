@@ -26,11 +26,21 @@ function showmovies(data) {
             const name = document.createElement("h3");
             poster.src = (movie.poster_path) ? "https://image.tmdb.org/t/p/original" + movie.poster_path : "no-poster-available.jpg";
             name.innerHTML = titleName(movie.original_title);
+            fetch("https://api.themoviedb.org/3/movie/"+movie.id+"/videos?api_key=07f61212877dc265f2a47e6e8d290605&language=en-US")
+            .then((response)=>{
+                return response.json();
+            })
+            .then((result)=>{
+                if(result.results.length===0){
+                    const trailerKey = findTrailer(result.results);
+                    if (trailerKey) movieDiv.append(getPlayTrailerButton(trailerKey));
+                }
+            })
+
             movieDiv.append(poster);
             movieDiv.append(name);
-            result.append(movieDiv)
+            result.append(movieDiv);
 
-            
 
         })
     }
@@ -44,3 +54,18 @@ function titleName(name) {
         return name
     }
 }
+function findTrailer(data) {
+    const videoObject = data.find(
+      (obj) => obj.site === "YouTube" && obj.type === "Trailer"
+    );
+    if (videoObject === "undefined") return false;
+    else return videoObject.key;
+  }
+  
+  function getPlayTrailerButton(key) {
+    const anchor = document.createElement("a");
+    anchor.href = "https://youtube.com/embed/" + key;
+    anchor.target = "_blank";
+    anchor.innerHTML = "Play Trailer";
+    return anchor;
+  }

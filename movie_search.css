@@ -114,6 +114,11 @@ header {
     box-shadow: 0 0 7px 4px #080c0e;
 
 }
+#results .movie a{
+    text-decoration: none;
+    color: red;
+    z-index: 2;
+}
 
 #results .movie h3 {
     font-weight: 300;
